@@ -28,10 +28,11 @@ def configure(conf):
 
   conf.env.append_value('CCFLAGS', ['-O3'])
   conf.env.append_value('CXXFLAGS', ['-O3'])
-  if Options.platform == 'darwin': conf.env.append_value('LINKFLAGS', ['-undefined', 'dynamic_lookup'])
-  conf.env.append_value("CPPPATH_PROTOBUF", "%s/include"%(os.environ['PROTOBUF']))
-  conf.env.append_value("LIBPATH_PROTOBUF", "%s/lib"%(os.environ['PROTOBUF']))
-  conf.env.append_value("LIB_PROTOBUF", "protobuf")
+  if Options.platform == 'darwin':
+    conf.env.append_value('LINKFLAGS', ['-undefined', 'dynamic_lookup'])
+  conf.env.append_value("CPPPATH_PROTOBUF", "protobuflib/include")
+  conf.env.append_value("LIBPATH_PROTOBUF", "protobuflib/lib")
+  conf.env.append_value("STATICLIB_PROTOBUF", "protobuf")
 
 def build(bld):
   # protobuf_for_node comes as a library to link against for services
