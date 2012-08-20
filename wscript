@@ -30,8 +30,8 @@ def configure(conf):
   conf.env.append_value('CXXFLAGS', ['-O3'])
   if Options.platform == 'darwin':
     conf.env.append_value('LINKFLAGS', ['-undefined', 'dynamic_lookup'])
-  conf.env.append_value("CPPPATH_PROTOBUF", "protobuflib/include")
-  conf.env.append_value("LIBPATH_PROTOBUF", "protobuflib/lib")
+  conf.env.append_value("CPPPATH_PROTOBUF", "../protobuflib/include")
+  conf.env.append_value("LIBPATH_PROTOBUF", "../protobuflib/lib")
   conf.env.append_value("STATICLIB_PROTOBUF", "protobuf")
 
 def build(bld):
